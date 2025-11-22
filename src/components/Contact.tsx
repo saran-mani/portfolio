@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -54,6 +54,12 @@ const Contact = () => {
       label: "Email",
       href: "mailto:saranmvdm@gmail.com",
       username: "saranmvdm@gmail.com",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      href: "tel:+916379710438",
+      username: "+91 6379710438",
     },
   ];
 

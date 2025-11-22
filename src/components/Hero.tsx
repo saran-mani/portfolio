@@ -15,6 +15,8 @@ const Hero = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-muted-foreground">
             Software Engineer{" "}
           </h2>
+          <p>saranmvdm@gmail.com</p>
+          <p>+91 6379710438</p>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Building scalable, high-performance backend systems and APIs that
             power modern applications.
