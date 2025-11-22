@@ -1,39 +1,41 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase } from 'lucide-react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Briefcase } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
     {
-      title: 'Backend Developer Intern',
-      company: 'Tech Solutions Inc.',
-      period: 'Jun 2023 - Aug 2023',
+      title: "Full Stack Developer",
+      company: "Synapsis Medical Technologies Inc",
+      period: "July 2025 - Present",
       description: [
-        'Developed and maintained RESTful APIs using Node.js and Express',
-        'Optimized database queries resulting in 40% performance improvement',
-        'Implemented caching strategies using Redis for frequently accessed data',
-        'Collaborated with frontend team to integrate APIs and resolve issues',
+        "Designed and implemented a geospatial analysis algorithm using MongoDB Geo queries and shapefile parsing toidentify affected Indigenous regions.",
+        "Developed a browser notification system using service workers and JWT-based authentication for real-time projectalerts.",
+        "Integrated multi-provider OAuth (Google, Apple) authentication for secure user onboarding.",
       ],
     },
     {
-      title: 'Software Engineering Intern',
-      company: 'Innovation Labs',
-      period: 'Jan 2023 - May 2023',
+      title: "Full Stack Developer Intern",
+      company: "Synapsis Medical Technologies Inc",
+      period: "April 2025 - June 2025",
       description: [
-        'Built microservices architecture for distributed application',
-        'Implemented authentication and authorization using JWT',
-        'Designed database schemas for PostgreSQL and MongoDB',
-        'Wrote comprehensive unit and integration tests',
+        "Built core modules for Maskwa Tech, a community project management app using GeoJSON and MongoDB for map rendering and site tracking.",
+        "Automated data ingestion and visualized construction progress.",
       ],
     },
     {
-      title: 'Backend Development Project',
-      company: 'Personal Project',
-      period: '2022 - Present',
+      title: "Software Engineer Intern",
+      company: "MyCLNQ Health",
+      period: "July 2024 - April 2025",
       description: [
-        'Developed full-stack applications with focus on backend architecture',
-        'Implemented CI/CD pipelines using Docker and GitHub Actions',
-        'Created scalable APIs handling thousands of requests per minute',
-        'Experimented with various backend technologies and design patterns',
+        "Integrated CrediMax payment gateway and automated PDF invoicing with Puppeteer.",
+        "Migrated AWS SDK from v2 → v3 for performance and maintainability improvements.",
+        "Integrated Zoom APIs for live teleconsultation; collaborated with Vietnam-based clients for UAT and deployment.",
       ],
     },
   ];
@@ -41,7 +43,9 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Experience</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          Experience
+        </h2>
         <div className="space-y-6">
           {experiences.map((exp, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -53,7 +57,9 @@ const Experience = () => {
                   <div className="flex-1">
                     <CardTitle className="text-xl">{exp.title}</CardTitle>
                     <CardDescription className="text-base">
-                      <span className="font-semibold text-foreground">{exp.company}</span>
+                      <span className="font-semibold text-foreground">
+                        {exp.company}
+                      </span>
                       <span className="mx-2">•</span>
                       <span>{exp.period}</span>
                     </CardDescription>
@@ -63,7 +69,10 @@ const Experience = () => {
               <CardContent>
                 <ul className="space-y-2 ml-14">
                   {exp.description.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-muted-foreground flex items-start">
+                    <li
+                      key={itemIndex}
+                      className="text-muted-foreground flex items-start"
+                    >
                       <span className="w-1.5 h-1.5 bg-accent rounded-full mr-3 mt-2 flex-shrink-0"></span>
                       {item}
                     </li>
