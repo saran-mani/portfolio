@@ -15,8 +15,12 @@ const Hero = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-muted-foreground">
             Software Engineer{" "}
           </h2>
-          <p>saranmvdm@gmail.com</p>
-          <p>+91 6379710438</p>
+          <Button size="lg" className="group" asChild>
+            <a href="https://linktr.ee/saranmj" target="_blank">
+              Linktr.ee/SaranMJ
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </Button>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Building scalable, high-performance backend systems and APIs that
             power modern applications.
@@ -29,7 +33,11 @@ const Hero = () => {
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="https://drive.google.com/file/d/1zVEtZ0XWYAl9kkD1cAqIZLN56d2EkG95/view?usp=sharing" download target="_blank">
+              <a
+                href="https://drive.google.com/file/d/1zVEtZ0XWYAl9kkD1cAqIZLN56d2EkG95/view?usp=sharing"
+                download
+                target="_blank"
+              >
                 <Download className="mr-2 h-5 w-5" />
                 View Resume
               </a>
