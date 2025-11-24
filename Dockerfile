@@ -2,10 +2,11 @@ FROM node:22 AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN bun install --frozen-lockfile
 
 COPY . .
-RUN npm run build
+
+RUN bun run build
 
 FROM nginx:alpine
 
