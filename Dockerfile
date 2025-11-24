@@ -1,13 +1,14 @@
-FROM node:22 AS builder
+# ---- Build Stage (Bun) ----
+FROM oven/bun:1 AS builder
 WORKDIR /app
 
-COPY package*.json ./
+COPY bun.lockb package.json ./
 RUN bun install --frozen-lockfile
 
 COPY . .
-
 RUN bun run build
 
+# ---- Serve Stage (Nginx) ----
 FROM nginx:alpine
 
 # delete default config
