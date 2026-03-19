@@ -1,11 +1,5 @@
 import { useState } from "react";
 import {
-  ShoppingBag,
-  ShoppingCart,
-  Store,
-  Package,
-  Globe,
-  Tag,
   BarChart3,
   RefreshCw,
   Shield,
@@ -23,43 +17,37 @@ const channels = [
   {
     name: "Shopify",
     description: "Sync products, variants, and stock automatically.",
-    icon: ShoppingBag,
-    color: "text-green-500",
+    logo: "https://cdn.simpleicons.org/shopify/96BF48",
     bg: "bg-green-500/10",
   },
   {
     name: "WooCommerce",
     description: "Real-time WordPress inventory synchronization.",
-    icon: ShoppingCart,
-    color: "text-purple-500",
+    logo: "https://cdn.simpleicons.org/woocommerce/7F54B3",
     bg: "bg-purple-500/10",
   },
   {
     name: "Amazon",
     description: "FBA and merchant-fulfilled inventory tracking.",
-    icon: Package,
-    color: "text-orange-500",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/1280px-Amazon_icon.svg.png",
     bg: "bg-orange-500/10",
   },
   {
     name: "BigCommerce",
     description: "Enterprise-grade connection for large catalogs.",
-    icon: Globe,
-    color: "text-blue-500",
+    logo: "https://cdn.simpleicons.org/bigcommerce/121118",
     bg: "bg-blue-500/10",
   },
   {
     name: "eBay",
     description: "Prevent overselling across auction listings.",
-    icon: Tag,
-    color: "text-red-500",
+    logo: "https://cdn.simpleicons.org/ebay/E53238",
     bg: "bg-red-500/10",
   },
   {
-    name: "Retail POS",
+    name: "Square POS",
     description: "Connect physical store registers to online stock.",
-    icon: Store,
-    color: "text-sky-500",
+    logo: "https://cdn.simpleicons.org/square/3E4348",
     bg: "bg-sky-500/10",
   },
 ];
@@ -365,13 +353,18 @@ export default function VendpilotLanding() {
                 <div
                   className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${ch.bg}`}
                 >
-                  <ch.icon className={`w-6 h-6 ${ch.color}`} />
+                  <img src={ch.logo} alt={ch.name} className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{ch.name}</h3>
                 <p className="text-neutral-500 text-sm">{ch.description}</p>
               </div>
             ))}
           </div>
+
+          {/* More integrations coming soon */}
+          <p className="mt-10 text-center text-sm text-neutral-400">
+            More integrations coming soon — Etsy, Walmart, TikTok Shop, and more.
+          </p>
         </div>
       </section>
 
@@ -487,7 +480,7 @@ export default function VendpilotLanding() {
       </section> */}
 
       {/* ── CTA Banner ── */}
-      <section className="py-20 bg-gradient-to-r from-sky-500 to-blue-600">
+      {/* <section className="py-20 bg-gradient-to-r from-sky-500 to-blue-600">
         <div className="max-w-screen-xl mx-auto px-6 md:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             Ready to stop overselling?
@@ -500,7 +493,7 @@ export default function VendpilotLanding() {
             Start syncing for free
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Footer ── */}
       <footer className="py-10 border-t border-neutral-100 bg-white">
