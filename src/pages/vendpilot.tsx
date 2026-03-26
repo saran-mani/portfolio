@@ -15,6 +15,12 @@ import {
 
 const channels = [
   {
+    name: "Etsy",
+    description: "Keep your handmade goods in sync across all listings.",
+    logo: "https://cdn.simpleicons.org/etsy/E77B24",
+    bg: "bg-orange-500/10",
+  },
+  {
     name: "Shopify",
     description: "Sync products, variants, and stock automatically.",
     logo: "https://cdn.simpleicons.org/shopify/96BF48",
@@ -157,17 +163,15 @@ export default function VendpilotLanding() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {["Features", "Integrations", "How it works"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/ /g, "-")}`}
-                  className="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {["Features", "Integrations", "How it works"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/ /g, "-")}`}
+                className="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
+              >
+                {item}
+              </a>
+            ))}
           </nav>
 
           {/* CTA */}
@@ -196,18 +200,16 @@ export default function VendpilotLanding() {
         {/* Mobile nav */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-neutral-100 bg-white px-6 py-4 flex flex-col gap-4">
-            {["Features", "Integrations", "How it works"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/ /g, "-")}`}
-                  className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {["Features", "Integrations", "How it works"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/ /g, "-")}`}
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
             <button className="mt-2 w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700">
               Get Started Free
             </button>
@@ -262,10 +264,7 @@ export default function VendpilotLanding() {
       </section>
 
       {/* ── Features ── */}
-      <section
-        id="features"
-        className="py-24 bg-neutral-50"
-      >
+      <section id="features" className="py-24 bg-neutral-50">
         <div className="max-w-screen-xl mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
@@ -353,7 +352,11 @@ export default function VendpilotLanding() {
                 <div
                   className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${ch.bg}`}
                 >
-                  <img src={ch.logo} alt={ch.name} className="w-6 h-6 object-contain" />
+                  <img
+                    src={ch.logo}
+                    alt={ch.name}
+                    className="w-6 h-6 object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{ch.name}</h3>
                 <p className="text-neutral-500 text-sm">{ch.description}</p>
@@ -363,7 +366,8 @@ export default function VendpilotLanding() {
 
           {/* More integrations coming soon */}
           <p className="mt-10 text-center text-sm text-neutral-400">
-            More integrations coming soon — Etsy, Walmart, TikTok Shop, and more.
+            More integrations coming soon — Etsy, Walmart, TikTok Shop, and
+            more.
           </p>
         </div>
       </section>
