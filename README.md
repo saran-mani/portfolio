@@ -1,75 +1,55 @@
-# Welcome to your Lovable project
+# saran.m: portfolio
 
-## Project info
+Personal site of **Saran M**, a backend-focused full stack engineer. It's built like an API:
 
-**URL**: https://lovable.dev/projects/e3c7382e-c16f-4be3-aecd-e9c6f6ffaf66
+- **Every section is an endpoint.** The left rail shows `GET /experience`, `GET /stack`, `POST /contact`…
+  Flip the `ui | json` switch in the top bar and every section is replaced by its raw JSON response.
+- **It really is an API.** The build emits static JSON under `/api`, from the same data the page renders:
+  `/api/index.json`, `/api/resume.json` (everything), and `/api/{profile,experience,projects,stack,education,contact}.json`.
+- **Your request, traced.** The hero shows the visitor's real page-load waterfall (DNS → TLS → TTFB → DOM)
+  from the browser's Navigation Timing API.
+- **Access log.** The pill in the bottom-right logs this visit as requests (scrolling into a section is a `GET`,
+  toggles are `PATCH /prefs`, copying is `POST /clipboard`…). Click it to open the full log.
+- **Runnable VendPilot ideas.** Two in-browser simulations: the BullMQ parent-child onboarding flow
+  (with an injectable 429 + exponential-backoff retry) and a Redis lock vs. lost-update race on the last unit of stock.
+- **⌘K / Ctrl K** command palette, light/dark theme, a curl-shaped contact form that hands off to the mail client.
 
-## How can I edit this code?
+## Stack
 
+Vite · React 18 · TypeScript · Tailwind CSS · [motion](https://motion.dev) · cmdk · Radix Dialog ·
+Geist / Geist Mono / Instrument Serif (self-hosted via Fontsource).
 
+## Editing content
 
-There are several ways of editing your application.
+All copy lives in **`src/content/resume.ts`**. That one typed module feeds the page *and* the `/api/*.json`
+files, so the UI and JSON views can't drift apart. Replace `src/assets/Saran_Resume.pdf` to update the
+downloadable resume.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/e3c7382e-c16f-4be3-aecd-e9c6f6ffaf66) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Scripts
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev      # http://localhost:8080 (the /api/*.json routes are served in dev too)
+npm run build    # outputs dist/, including dist/api/*.json
+npm run preview
+npm run lint
 ```
 
-**Edit a file directly in GitHub**
+## Layout
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+  content/       resume.ts (single source of truth), nav.ts
+  components/
+    site/        page sections, Section shell, JSON view, top bar, palette, log dock
+    site/lab/    VendPilot simulations (flow + lock)
+    ui/          shadcn/ui primitives
+  state/         theme / view / access-log / active-section context
+  hooks/         useNow, useNavigationTiming, useSectionTracking
+  pages/         Index, vendpilot (product page), NotFound
+```
 
-**Use GitHub Codespaces**
+## Deploy
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e3c7382e-c16f-4be3-aecd-e9c6f6ffaf66) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+`Dockerfile` builds with Bun and serves `dist/` from nginx (`nginx.conf` handles SPA fallback; `/api/*.json`
+are plain static files). `public/_redirects` covers Netlify-style hosts.
